@@ -34,7 +34,7 @@
 - has_one :purchase
 
 
-## Purchase
+## Purchases
 |Column|Type|Options|
 | ----------- | --------- | ----------- |
 | user        | reference | foreign_key: true |
@@ -46,15 +46,15 @@
 - has_one :address
 
 
-## Address
+## Addresses
 |Column|Type|Options|
 | ----------- | ------- | ----------- |
 | postal_code | string  | null: false |
 | city_id     | integer | null: false |
 | town        | string  | null: false |
 | number      | string  | null: false |
-| building    | string  |
-| tell        | integer  | null: false |
+| building    | string  |             |
+| tell        | string  | null: false |
 | purchase  | reference | foreign_key: true |
 
 
