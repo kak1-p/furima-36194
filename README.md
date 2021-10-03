@@ -1,14 +1,15 @@
 # README
 ## Users
 |Column|Type|Options|
-| nickname    | string | null: false |
-| email       | string | null: false |
-| password    | string | null: false |
-| family_name | string | null: false |
-| first_name  | string | null: false |
-| family_name_k | string | null: false |
-| first_name_k  | string | null: false |
-| birth       | datetime | null: false |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| family_name        | string | null: false |
+| first_name         | string | null: false |
+| family_name_k      | string | null: false |
+| first_name_k       | string | null: false |
+| birth              | datetime | null: false |
 
 ### Association
 - has_many :items
@@ -17,6 +18,7 @@
 
 ## Items
 |Column|Type|Options|
+| ----------- | ------- | ----------- |
 | items_name  | string  | null: false |
 | detail      | text    | null: false |
 | category_id | integer | null: false |
@@ -34,6 +36,7 @@
 
 ## Purchase
 |Column|Type|Options|
+| ----------- | --------- | ----------- |
 | user        | reference | foreign_key: true |
 | item        | reference | foreign_key: true |
 
@@ -45,6 +48,7 @@
 
 ## Address
 |Column|Type|Options|
+| ----------- | ------- | ----------- |
 | postal_code | string  | null: false |
 | city_id     | integer | null: false |
 | town        | string  | null: false |
