@@ -25,9 +25,9 @@
 | status_id   | integer | null: false |
 | fee_id      | integer | null: false |
 | city_id     | integer | null: false |
-| date_id     | integer | null: false |
+| delivery_date_id     | integer | null: false |
 | price       | integer | null: false |
-| user        | reference | foreign_key: true |
+| user        | references | foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -37,8 +37,8 @@
 ## Purchases
 |Column|Type|Options|
 | ----------- | --------- | ----------- |
-| user        | reference | foreign_key: true |
-| item        | reference | foreign_key: true |
+| user        | references | foreign_key: true |
+| item        | references | foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -55,7 +55,7 @@
 | number      | string  | null: false |
 | building    | string  |             |
 | tell        | string  | null: false |
-| purchase  | reference | foreign_key: true |
+| purchase  | references | foreign_key: true |
 
 
 ### Association
