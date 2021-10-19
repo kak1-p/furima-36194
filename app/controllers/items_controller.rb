@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: new
+  before_action :authenticate_user!, only: :new
+  before_action :move_to_index, only: :new
 
   def index
     @items = Item.order("created_at DESC")
@@ -14,7 +15,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @item = Item.new(item_params)
       render :new
     end
   end
@@ -23,8 +23,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(
-      :items_name, :detail, :category_id, :status_id,
-      :fee_id, :city_id, :date_id
-    )
+      :image, :items_name, :detail, :category_id, :status_id,
+      :fee_id, :city_id, :delivery_date_id, :price
+    ).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end

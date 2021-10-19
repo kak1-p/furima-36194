@@ -5,7 +5,6 @@ class Item < ApplicationRecord
   belongs_to :fee
   belongs_to :city
   belongs_to :delivery_date
-  belongs_to :price
   belongs_to :user
   has_one_attached :image
 
