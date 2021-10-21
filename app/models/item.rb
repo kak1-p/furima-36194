@@ -26,5 +26,6 @@ class Item < ApplicationRecord
     validates :city_id
     validates :delivery_date_id
   end
-  validates :price, numericality: { in: 300..9999999}
+  validates :price, numericality: { in: 300..9999999 }
+  validates_inclusion_of :price, in:300..9999999
 end
