@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
 
 ## Items
@@ -31,10 +31,10 @@
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 
 
-## Purchases
+## orders
 |Column|Type|Options|
 | ----------- | --------- | ----------- |
 | user        | references | foreign_key: true |
@@ -55,10 +55,10 @@
 | number      | string  | null: false |
 | building    | string  |             |
 | tell        | string  | null: false |
-| purchase  | references | foreign_key: true |
+| order       | references | foreign_key: true |
 
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
 
 
