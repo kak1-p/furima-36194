@@ -52,7 +52,7 @@
 | postal_code | string  | null: false |
 | city_id     | integer | null: false |
 | town        | string  | null: false |
-| number      | string  | null: false |
+| house_number      | string  | null: false |
 | building    | string  |             |
 | tell        | string  | null: false |
 | order       | references | foreign_key: true |
