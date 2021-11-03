@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless @item.user.id == current_user.id
+    unless @item.user.id == current_user.id && @item.present?
       redirect_to action: :index
     end
   end
