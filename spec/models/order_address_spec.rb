@@ -9,7 +9,7 @@ RSpec.describe OrderAddress, type: :model do
   end
   describe '配送先情報' do
     context '保存できる場合' do
-      it '全ての値が正しく入力されていれば保存できる' do
+      it '全ての値が正しく入力されていてtokenがあれば保存できる' do
         expect(@order_address).to be_valid
       end
       it 'buildingが空でも保存できる' do
@@ -18,6 +18,11 @@ RSpec.describe OrderAddress, type: :model do
       end
     end
     context '保存できない場合' do
+      it "tokenが空では登録できないこと" do
+        @order_address.token = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Token can't be blank"
+      end
       it '郵便番号が空だと保存できない' do
         @order_address.postal_code = ''
         @order_address.valid?

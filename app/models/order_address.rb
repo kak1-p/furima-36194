@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :city_id, :town, :house_number, :building, :tell
+  attr_accessor :user_id, :item_id, :postal_code, :city_id, :town, :house_number, :building, :tell, :token
 
   with_options presence: true do
     validates :user_id
@@ -9,6 +9,7 @@ class OrderAddress
     validates :town
     validates :house_number
     validates :tell, format: {with: /\A\d{10,11}\z/}
+    validates :token
   end
   validates :city_id, numericality: { other_than: 1 , message: "can't be blank"}
 
