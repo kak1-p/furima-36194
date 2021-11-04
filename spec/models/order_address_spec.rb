@@ -58,8 +58,13 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include "Tell can't be blank"
       end
-      it '電話番号は、10桁以上11桁以内以外だと保存できない' do
-        @order_address.tell = 111111111
+      it '電話番号が9桁以下だと登録できない' do
+      @order_address.tell = 111111111
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Tell is invalid"
+      end
+      it '電話番号が12桁以上だと登録できないこと' do
+        @order_address.tell = 111111111111
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include "Tell is invalid"
       end
